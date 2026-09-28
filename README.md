@@ -70,6 +70,8 @@ python -m http.server 8000
 
 Then open <http://localhost:8000>.
 
+```
+
 > **Why not just double-click `index.html`?** The site mostly works that way, but YouTube often refuses to play embedded videos on pages opened from `file://`. Running it through a local server fixes that. The video thumbnails also need an internet connection.
 
 ## Deployment
