@@ -1,4 +1,4 @@
-
+# Rudransh — Code & Teach
 
 A multi-page portfolio website that doubles as a beginner-friendly lesson in **HTML, CSS and JavaScript**. Every page is both a real feature and an explanation of how it's built. Nothing is hidden: view the source and learn from it.
 
@@ -37,7 +37,7 @@ Built with plain HTML, CSS and vanilla JavaScript. No frameworks, no build step,
 ## Project structure
 
 ```
-portfolio/
+Web-Development-Project/
 ├── index.html
 ├── learn.html
 ├── playground.html
@@ -58,11 +58,14 @@ portfolio/
 2. Open the project folder in VS Code.
 3. Right-click `index.html` and choose **Open with Live Server**.
 
+
 **Option 2: Python**
 
 ```bash
-cd portfolio
+git clone https://github.com/Rudyxo/Web-Development-Project.git
+cd Web-Development-Project
 python -m http.server 8000
+```
 ```
 
 Then open <http://localhost:8000>.
@@ -100,7 +103,6 @@ Deployed on [Vercel](https://vercel.com) straight from this repo. It's a static 
 - GitHub: [@Rudyxo](https://github.com/Rudyxo)
 - LinkedIn: [rudransh-grover](https://www.linkedin.com/in/rudransh-grover-a08a15386/)
 - Instagram: [@rudransh_notfound](https://www.instagram.com/rudransh_notfound/)
-- Email: rudranshgrover@gmail.com
 
 ## Acknowledgements
 
