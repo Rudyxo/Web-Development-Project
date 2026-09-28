@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playground — Rudransh</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="playground">
+
+<nav class="navbar">
+  <a href="index.html" class="logo">&lt;Rudransh/&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button id="music-toggle" class="music-btn" title="Toggle background music" aria-label="Toggle background music">🔇</button>
+</nav>
+
+<div class="page-banner">
+  <span class="tag">02 / Practice</span>
+  <h1>Live playground</h1>
+  <p>Edit the HTML and CSS below — the preview updates as you type. No setup, no build tools.</p>
+</div>
+
+<section class="section section-dark">
+  <div class="playground">
+    <div class="editor-col">
+      <label for="html-input">HTML</label>
+      <textarea id="html-input" spellcheck="false">&lt;h1&gt;Hello, world!&lt;/h1&gt;
+&lt;p&gt;Edit me and watch the preview change.&lt;/p&gt;
+&lt;button id="magic"&gt;Click me&lt;/button&gt;</textarea>
+
+      <label for="css-input">CSS</label>
+      <textarea id="css-input" spellcheck="false">body {
+  font-family: sans-serif;
+  color: #eaeaf4;
+  background: #0e0e16;
+  padding: 20px;
+}
+button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #7c5cff;
+  color: white;
+  cursor: pointer;
+}</textarea>
+    </div>
+    <div class="preview-col">
+      <label>Live preview</label>
+      <iframe id="preview" title="live preview"></iframe>
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener noreferrer">HTML elements ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank" rel="noopener noreferrer">CSS reference ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" target="_blank" rel="noopener noreferrer">iframe (how this preview works) ↗</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Built line by line with HTML, CSS &amp; a little JS — no frameworks.</p>
+  <div class="footer-links"><a href="projects.html">See finished projects →</a></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

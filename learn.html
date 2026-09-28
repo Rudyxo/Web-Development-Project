@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn — Rudransh</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="learn.css">
+</head>
+<body data-page="learn">
+
+<nav class="navbar">
+  <a href="index.html" class="logo">&lt;Rudransh/&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button id="music-toggle" class="music-btn" title="Toggle background music" aria-label="Toggle background music">🔇</button>
+</nav>
+
+<div class="page-banner">
+  <span class="tag">01 / Learn</span>
+  <h1>The three building blocks</h1>
+  <p>Read the idea, play with the syntax, then watch a beginner video. Pick a tab to start.</p>
+</div>
+
+<section class="section">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="html">HTML</button>
+    <button class="tab-btn" data-tab="css">CSS</button>
+    <button class="tab-btn" data-tab="js">JavaScript</button>
+  </div>
+
+  <div class="tab-panels">
+
+    <!-- ================= HTML ================= -->
+    <div class="tab-panel lesson active" id="panel-html">
+      <h3>HTML — the skeleton of every web page</h3>
+      <p class="lesson-intro">HTML (HyperText Markup Language) describes <em>what</em> is on a page: headings, paragraphs, links, images, buttons, forms. It doesn't decide how things look or behave — it gives content structure and meaning, so browsers, search engines and screen readers all understand it. You write HTML by wrapping content in <strong>tags</strong>, and the browser turns those tags into the page you see.</p>
+
+      <br>
+      <h4 class="lesson-h">1. Anatomy of an element</h4>
+      <pre class="code-block anatomy"><code><span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-val">"https://github.com/Rudyxo"</span><span class="tok-tag">&gt;</span>My GitHub<span class="tok-tag">&lt;/a&gt;</span></code></pre>
+      <ul class="legend">
+        <li><span class="tok-tag">&lt;a ...&gt; &lt;/a&gt;</span> opening and closing tag (the closing one has a <code>/</code>)</li>
+        <li><span class="tok-attr">href</span> an attribute — extra info about the element</li>
+        <li><span class="tok-val">"..."</span> the attribute's value, always in quotes</li>
+        <li><strong>My GitHub</strong> the content between the tags</li>
+      </ul>
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener noreferrer">All HTML elements ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes" target="_blank" rel="noopener noreferrer">HTML attributes ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank" rel="noopener noreferrer">The a element ↗</a></p>
+      
+      <br>
+
+      <h4 class="lesson-h">2. Tag explorer — click a tag to see its code and result</h4>
+      <div class="explorer">
+        <div class="chip-row" id="tag-chips">
+          <button class="chip active" data-tag="h1">&lt;h1&gt;</button>
+          <button class="chip" data-tag="p">&lt;p&gt;</button>
+          <button class="chip" data-tag="a">&lt;a&gt;</button>
+          <button class="chip" data-tag="ul">&lt;ul&gt;</button>
+          <button class="chip" data-tag="button">&lt;button&gt;</button>
+          <button class="chip" data-tag="input">&lt;input&gt;</button>
+        </div>
+        <div class="explorer-grid">
+          <div>
+            <span class="mini-label">Code</span>
+            <pre class="code-block"><code id="tag-code"></code></pre>
+          </div>
+          <div>
+            <span class="mini-label">Result</span>
+            <div class="demo-box" id="tag-demo"></div>
+          </div>
+        </div>
+        <p class="note" id="tag-note"></p>
+      </div>
+
+      <br>
+
+      <h4 class="lesson-h">3. Every page starts with this skeleton</h4>
+      <pre class="code-block"><code>&lt;!DOCTYPE html&gt;          <span class="tok-com">&lt;!-- tells the browser: this is HTML5 --&gt;</span>
+&lt;html lang="en"&gt;
+  &lt;head&gt;                   <span class="tok-com">&lt;!-- info ABOUT the page (not shown) --&gt;</span>
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;                   <span class="tok-com">&lt;!-- everything visible goes here --&gt;</span>
+    &lt;h1&gt;Hello!&lt;/h1&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Doctype" target="_blank" rel="noopener noreferrer">Doctype ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html" target="_blank" rel="noopener noreferrer">html ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head" target="_blank" rel="noopener noreferrer">head ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta" target="_blank" rel="noopener noreferrer">meta ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title" target="_blank" rel="noopener noreferrer">title ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link" target="_blank" rel="noopener noreferrer">link ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body" target="_blank" rel="noopener noreferrer">body ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script" target="_blank" rel="noopener noreferrer">script ↗</a></p>
+        
+      <br>
+
+      <h4 class="lesson-h">4. Beginner video</h4>
+      <div class="video-card" data-video="kUMe1FH4CHE">
+        <div class="video-thumb" role="button" tabindex="0" aria-label="Play HTML beginner video"><span class="play-btn">▶</span></div>
+        <a class="video-link" href="https://youtu.be/kUMe1FH4CHE" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </div>
+    </div>
+
+    <!-- ================= CSS ================= -->
+    <div class="tab-panel lesson" id="panel-css">
+      <h3>CSS — the styling layer</h3>
+      <p class="lesson-intro">CSS (Cascading Style Sheets) controls how HTML looks: colours, fonts, spacing, layout, animation and responsiveness. The idea is simple — <strong>select</strong> an element, then <strong>declare</strong> how it should look. "Cascading" means that when several rules apply to the same element, the browser has clear rules for which one wins (later and more specific rules beat earlier and vaguer ones).</p>
+
+      <br>
+      <h4 class="lesson-h">1. Anatomy of a rule</h4>
+      <pre class="code-block anatomy"><code><span class="tok-tag">.card</span> {
+  <span class="tok-attr">background</span>: <span class="tok-val">#151521</span>;
+  <span class="tok-attr">border-radius</span>: <span class="tok-val">14px</span>;
+}</code></pre>
+      <ul class="legend">
+        <li><span class="tok-tag">.card</span> the selector — which elements to style</li>
+        <li><span class="tok-attr">background</span> a property — what to change</li>
+        <li><span class="tok-val">#151521</span> the value — what to change it to</li>
+        <li>Each declaration ends with <code>;</code> and the whole block sits inside <code>{ }</code></li>
+      </ul>
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank" rel="noopener noreferrer">CSS reference (every property) ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade" target="_blank" rel="noopener noreferrer">The cascade ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity" target="_blank" rel="noopener noreferrer">Specificity ↗</a></p>
+
+      <br>
+      <h4 class="lesson-h">2. Style lab — drag the controls, watch the box and the code</h4>
+      <div class="explorer">
+        <div class="explorer-grid">
+          <div class="lab-controls">
+            <label>Background <input type="color" id="lab-bg" value="#7c5cff"></label>
+            <label>border-radius: <output id="out-radius">14px</output><input type="range" id="lab-radius" min="0" max="60" value="14"></label>
+            <label>padding: <output id="out-pad">24px</output><input type="range" id="lab-pad" min="0" max="60" value="24"></label>
+            <label>box-shadow blur: <output id="out-shadow">20px</output><input type="range" id="lab-shadow" min="0" max="50" value="20"></label>
+          </div>
+          <div class="lab-stage"><div id="lab-box">I'm a styled box</div></div>
+        </div>
+        <span class="mini-label">Generated CSS</span>
+        <pre class="code-block"><code id="lab-code"></code></pre>
+        <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background" target="_blank" rel="noopener noreferrer">background ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius" target="_blank" rel="noopener noreferrer">border-radius ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding" target="_blank" rel="noopener noreferrer">padding ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow" target="_blank" rel="noopener noreferrer">box-shadow ↗</a></p>
+      </div>
+      
+      <br>
+
+      <h4 class="lesson-h">3. Selectors you'll use every day</h4>
+      <div class="card-grid">
+        <div class="syntax-card"><h5>Element</h5><pre><code>p { color: gray; }</code></pre><p>Styles every &lt;p&gt; on the page.</p></div>
+        <div class="syntax-card"><h5>Class</h5><pre><code>.card { padding: 20px; }</code></pre><p>Styles anything with class="card". Reusable.</p></div>
+        <div class="syntax-card"><h5>ID</h5><pre><code>#logo { font-size: 2rem; }</code></pre><p>Styles the one element with id="logo". Unique.</p></div>
+        <div class="syntax-card"><h5>Hover</h5><pre><code>button:hover { opacity: .8; }</code></pre><p>Applies only while the mouse is over it.</p></div>
+      </div>
+
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" target="_blank" rel="noopener noreferrer">All selectors ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors" target="_blank" rel="noopener noreferrer">Element ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors" target="_blank" rel="noopener noreferrer">Class ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors" target="_blank" rel="noopener noreferrer">ID ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:hover" target="_blank" rel="noopener noreferrer">:hover ↗</a></p>
+
+      <br>
+
+      <h4 class="lesson-h">4. Layout in two lines</h4>
+      <div class="card-grid two">
+        <div class="syntax-card"><h5>Flexbox — one direction</h5><pre><code>.row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}</code></pre></div>
+        <div class="syntax-card"><h5>Grid — rows and columns</h5><pre><code>.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}</code></pre></div>
+      </div>
+
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout" target="_blank" rel="noopener noreferrer">Flexbox guide ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout" target="_blank" rel="noopener noreferrer">Grid guide ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" rel="noopener noreferrer">display ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gap" target="_blank" rel="noopener noreferrer">gap ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" rel="noopener noreferrer">justify-content ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns" target="_blank" rel="noopener noreferrer">grid-template-columns ↗</a></p>
+
+      <br>
+
+      <h4 class="lesson-h">5. Beginner video</h4>
+      <div class="video-card" data-video="OXGznpKZ_sA">
+        <div class="video-thumb" role="button" tabindex="0" aria-label="Play CSS beginner video"><span class="play-btn">▶</span></div>
+        <a class="video-link" href="https://youtu.be/OXGznpKZ_sA" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </div>
+    </div>
+
+    <!-- ================= JS ================= -->
+    <div class="tab-panel lesson" id="panel-js">
+      <h3>JavaScript — the behaviour</h3>
+      <p class="lesson-intro">JavaScript is a real programming language that runs inside the browser. Where HTML is structure and CSS is looks, JS is <strong>what happens</strong>: reacting to clicks, changing text, validating forms, playing sound, fetching data. It works by storing information in <strong>variables</strong>, making decisions with <strong>conditions</strong>, repeating work with <strong>loops</strong>, and bundling steps into <strong>functions</strong>.</p>
+      
+      <br>
+
+      <h4 class="lesson-h">1. The five ideas behind almost every program</h4>
+      <div class="card-grid">
+        <div class="syntax-card"><h5>Variables</h5><pre><code>let name = "Rudransh";
+const year = 2026;</code></pre><p><code>let</code> can change later, <code>const</code> can't.</p></div>
+        <div class="syntax-card"><h5>Functions</h5><pre><code>function add(a, b) {
+  return a + b;
+}</code></pre><p>Reusable steps. Input in, result out.</p></div>
+        <div class="syntax-card"><h5>Conditions</h5><pre><code>if (score &gt;= 60) {
+  ...
+} else { ... }</code></pre><p>Do different things in different cases.</p></div>
+        <div class="syntax-card"><h5>Loops</h5><pre><code>for (let i = 1; i &lt;= 5; i++) {
+  ...
+}</code></pre><p>Repeat without copy-pasting.</p></div>
+      </div>
+
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">JavaScript hub ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="noopener noreferrer">let ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const" target="_blank" rel="noopener noreferrer">const ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function" target="_blank" rel="noopener noreferrer">function ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else" target="_blank" rel="noopener noreferrer">if...else ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for" target="_blank" rel="noopener noreferrer">for ↗</a></p>
+
+      <br
+
+      <h4 class="lesson-h">2. Run it yourself — pick an example or edit the code</h4>
+      <div class="explorer">
+        <div class="chip-row" id="js-chips">
+          <button class="chip active" data-snippet="variables">Variables</button>
+          <button class="chip" data-snippet="function">Function</button>
+          <button class="chip" data-snippet="condition">Condition</button>
+          <button class="chip" data-snippet="loop">Loop</button>
+          <button class="chip" data-snippet="array">Array</button>
+        </div>
+        <div class="explorer-grid">
+          <div>
+            <span class="mini-label">Code (editable)</span>
+            <textarea id="js-code" spellcheck="false"></textarea>
+            <button class="btn btn-primary run-btn" id="js-run">▶ Run</button>
+          </div>
+          <div>
+            <span class="mini-label">Output</span>
+            <pre class="code-block output" id="js-out">Press Run…</pre>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <h4 class="lesson-h">3. Talking to the page (the DOM)</h4>
+      <pre class="code-block"><code><span class="tok-com">// 1. find an element</span>
+const btn = document.querySelector('#music-toggle');
+
+<span class="tok-com">// 2. listen for an event</span>
+btn.addEventListener('click', () =&gt; {
+  <span class="tok-com">// 3. change something</span>
+  btn.classList.toggle('playing');
+});</code></pre>
+      <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener noreferrer">What is the DOM? ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noopener noreferrer">querySelector ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">addEventListener ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList" target="_blank" rel="noopener noreferrer">classList ↗</a></p>
+      
+      <br>
+
+      <h4 class="lesson-h">4. Beginner video</h4>
+      <div class="video-card" data-video="EerdGm-ehJQ">
+        <div class="video-thumb" role="button" tabindex="0" aria-label="Play JavaScript beginner video"><span class="play-btn">▶</span></div>
+        <a class="video-link" href="https://youtu.be/EerdGm-ehJQ" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Built line by line with HTML, CSS &amp; a little JS — no frameworks.</p>
+  <div class="footer-links"><a href="playground.html">Try it yourself in the Playground →</a></div>
+</footer>
+
+<script src="script.js"></script>
+<script src="learn.js"></script>
+</body>
+</html>
