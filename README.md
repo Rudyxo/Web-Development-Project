@@ -4,7 +4,7 @@ A multi-page portfolio website that doubles as a beginner-friendly lesson in **H
 
 Built with plain HTML, CSS and vanilla JavaScript. No frameworks, no build step, no audio files.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-7c5cff?style=for-the-badge)](https://webdev-project-delta.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-7c5cff?style=for-the-badge)](https://web-development-project-indol.vercel.app/)
 
 ## Features
 
