@@ -1,6 +1,22 @@
+/* ==================================================================
+   HOW THIS FILE IS ORGANISED
+   One section per part of the page (Navbar, Hero, Playground, etc),
+   each starting with a comment banner like the one below. Scroll to
+   the section that matches what you're looking at in the browser.
+   ================================================================== */
+
 /* ---------- Reset & base ---------- */
+/* The universal selector * targets every element on the page.
+   Browsers give elements default margin/padding that differs between
+   browsers — zeroing them out first gives a predictable, consistent
+   starting point to build styles on top of. box-sizing: border-box
+   makes padding and border count INSIDE an element's declared width,
+   instead of adding to it — this avoids a lot of layout surprises. */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* CSS custom properties ("variables"), declared on :root so they're
+   available to every element on the page. Change a colour here once
+   and it updates everywhere it's used via var(--name) below. */
 :root {
   --bg: #0b0b12;
   --bg-alt: #111119;
@@ -13,7 +29,7 @@
   --radius: 14px;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; } /* animates jumps to #anchors instead of snapping instantly */
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -27,14 +43,20 @@ ul { list-style: none; }
 code { font-family: 'Consolas', 'Courier New', monospace; }
 
 /* ---------- Navbar ---------- */
+/* position: fixed pins the navbar to the viewport, so it stays on
+   screen while the rest of the page scrolls underneath it.
+   backdrop-filter: blur() blurs whatever is BEHIND this element —
+   that's what gives the "frosted glass" effect as content scrolls
+   under a semi-transparent (rgba with alpha 0.75) background.
+   z-index: 100 keeps it stacked above everything else on the page. */
 .navbar {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  display: flex;
-  justify-content: space-between;
+  top: 0; left: 0; right: 0; /* stretches it full-width, pinned to the top */
+  display: flex; /* lays logo, links and button out in a single row */
+  justify-content: space-between; /* pushes logo left, button right, links fill the middle */
   align-items: center;
   padding: 18px 6%;
-  background: rgba(11, 11, 18, 0.75);
+  background: rgba(11, 11, 18, 0.75); /* rgba = red, green, blue, alpha(opacity) */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
@@ -79,6 +101,8 @@ code { font-family: 'Consolas', 'Courier New', monospace; }
 }
 
 /* ---------- Hero ---------- */
+/* min-height: 100vh makes the hero fill the full viewport height on
+   first load — 1vh = 1% of the browser window's height. */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -92,14 +116,17 @@ code { font-family: 'Consolas', 'Courier New', monospace; }
 }
 .hero-bg {
   position: absolute;
-  inset: -20%;
+  inset: -20%; /* shorthand for top/right/bottom/left: -20%, oversized so the blur never shows a hard edge */
   background:
     radial-gradient(circle at 20% 30%, rgba(124,92,255,0.25), transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(255,92,138,0.2), transparent 40%);
-  filter: blur(40px);
-  animation: drift 14s ease-in-out infinite alternate;
+  filter: blur(40px); /* softens the gradients into a glow instead of hard circles */
+  animation: drift 14s ease-in-out infinite alternate; /* runs the @keyframes below, forever, back and forth */
   z-index: 0;
 }
+/* @keyframes defines an animation's steps by name ("drift"), referenced
+   above by animation: drift .... "from"/"to" are shorthand for 0%/100%;
+   you can also use percentages (0%, 50%, 100%) for more steps. */
 @keyframes drift {
   from { transform: translate(0,0) scale(1); }
   to   { transform: translate(3%, -3%) scale(1.05); }
@@ -113,6 +140,10 @@ code { font-family: 'Consolas', 'Courier New', monospace; }
   font-size: 0.8rem;
   margin-bottom: 14px;
 }
+/* clamp(min, preferred, max) is a responsive-sizing shortcut: the
+   font stays at 5vw (5% of viewport width) as the browser resizes,
+   but never shrinks below 2rem or grows past 3.2rem. One line instead
+   of writing separate font-sizes for several @media breakpoints. */
 .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2; }
 .typed { color: var(--accent-2); }
 .cursor { animation: blink 1s step-end infinite; color: var(--accent-2); }
@@ -211,6 +242,10 @@ code { font-family: 'Consolas', 'Courier New', monospace; }
 }
 
 /* ---------- Playground ---------- */
+/* grid-template-columns: 1fr 1fr splits the row into two equal-width
+   columns ("1fr" = 1 fraction of the remaining space). Compare this
+   to Flexbox above, which is better for a single row/column, while
+   Grid is better for a full two-dimensional layout like this one. */
 .playground { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .editor-col, .preview-col { display: flex; flex-direction: column; gap: 8px; }
 .editor-col label, .preview-col label {
@@ -246,6 +281,10 @@ textarea:focus { outline: none; border-color: var(--accent); }
 }
 
 /* ---------- Projects ---------- */
+/* repeat(auto-fit, minmax(260px, 1fr)) is the classic "responsive grid
+   with no media queries" trick: fit as many 260px+ columns as the row
+   allows, and stretch them evenly (1fr) to fill any leftover space.
+   Resize the browser window to see columns appear/disappear live. */
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
 .project-card {
   background: var(--card);

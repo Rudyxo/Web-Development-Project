@@ -1,3 +1,11 @@
+/* ====================================================================
+   HOW THIS FILE IS ORGANISED
+   Loaded on every page (see the <script> tag near the end of each
+   .html file). Each section below is wrapped in a guard clause like
+   `if (someElement)` so it safely does nothing on pages that don't
+   have that element — e.g. the tabs code only runs on learn.html.
+   ==================================================================== */
+
 // ---------- Shared audio context (created lazily on first user interaction) ----------
 let audioCtx = null;
 function getAudioCtx() {
@@ -95,6 +103,9 @@ function stopMusic() {
   musicNodes = null;
 }
 
+// getElementById returns one element (or null if it doesn't exist on
+// this page). The `if (musicBtn)` guard below means this whole block
+// is skipped safely on any page that happens not to have the button.
 const musicBtn = document.getElementById('music-toggle');
 if (musicBtn) {
   const isOn = localStorage.getItem('musicOn') === 'true';
@@ -117,7 +128,13 @@ if (musicBtn) {
 }
 
 // ---------- Active nav link ----------
+// location.pathname is the current URL's path, e.g. "/learn.html".
+// .split('/') breaks it into pieces at every slash; .pop() removes
+// and returns the LAST piece, leaving just the filename, e.g. "learn.html".
 const currentFile = location.pathname.split('/').pop() || 'index.html';
+// querySelectorAll returns EVERY matching element as a list (unlike
+// getElementById, which returns one). .forEach runs the given
+// function once per element in that list.
 document.querySelectorAll('.nav-links a').forEach(link => {
   if (link.getAttribute('href') === currentFile) link.classList.add('active');
 });
@@ -126,8 +143,13 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 const typedEl = document.getElementById('typed');
 if (typedEl) {
   const phrases = ["then I teach it.", "and explain every line.", "no frameworks needed."];
+  // `let` because these values change as the animation runs;
+  // `deleting` is a boolean flag that flips the function between
+  // typing forward and deleting backward, so one function does both.
   let phraseIndex = 0, charIndex = 0, deleting = false;
 
+  // type() calls itself repeatedly via setTimeout below (a common
+  // pattern for simple animations, before you learn requestAnimationFrame).
   function type() {
     const current = phrases[phraseIndex];
     if (!deleting) {
@@ -155,9 +177,16 @@ const tabButtons = document.querySelectorAll('.tab-btn');
 const tabPanels = document.querySelectorAll('.tab-panel');
 tabButtons.forEach(btn => {
   btn.addEventListener('click', () => {
+    // Reset-then-activate pattern: strip 'active' from EVERY button and
+    // panel first, then add it back only to the one that was clicked.
+    // This is simpler and less error-prone than tracking which was
+    // previously active and removing just that one.
     tabButtons.forEach(b => b.classList.remove('active'));
     tabPanels.forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
+    // btn.dataset.tab reads the button's data-tab="html" HTML attribute
+    // (any data-* attribute is auto-exposed on .dataset). We use it to
+    // build the matching panel's id, e.g. data-tab="html" -> "panel-html".
     document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
   });
 });
@@ -168,25 +197,34 @@ const cssInput = document.getElementById('css-input');
 const preview = document.getElementById('preview');
 if (htmlInput && cssInput && preview) {
   function updatePreview() {
+    // Template literal (backtick string): builds a full mini HTML
+    // document as text, injecting the textareas' current values with
+    // ${...}. preview.srcdoc is a special <iframe> property that lets
+    // you hand it raw HTML directly, instead of pointing it at a URL.
     const doc = `<!DOCTYPE html><html><head><style>${cssInput.value}</style></head><body>${htmlInput.value}</body></html>`;
     preview.srcdoc = doc;
   }
+  // The 'input' event fires on every keystroke (unlike 'change', which
+  // only fires once you click away) — that's what makes the preview live.
   htmlInput.addEventListener('input', updatePreview);
   cssInput.addEventListener('input', updatePreview);
-  updatePreview();
+  updatePreview(); // run once immediately, so the preview isn't blank on page load
 }
 
 // ---------- Reveal sections on scroll ----------
+// IntersectionObserver watches elements and tells you when they enter
+// the viewport, without you having to manually check scroll position
+// on every scroll event (which is slow and janky by comparison).
 const revealTargets = document.querySelectorAll('.section, .hero-content, .page-banner');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting) { // true once the element scrolls into view
       entry.target.style.opacity = 1;
       entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
+      observer.unobserve(entry.target); // stop watching it, we only need this once
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.15 }); // fire as soon as 15% of the element is visible
 revealTargets.forEach(el => {
   el.style.opacity = 0;
   el.style.transform = 'translateY(24px)';

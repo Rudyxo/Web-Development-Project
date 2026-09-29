@@ -38,11 +38,17 @@
   <button id="music-toggle" class="music-btn" title="Toggle background music" aria-label="Toggle background music">🔇</button>
 </nav>
 
+<!-- Page banner: same purple/pink pattern reused on Learn, Playground
+     and Projects, so every inner page has a consistent "title area"
+     under the fixed navbar. -->
 <div class="page-banner">
   <span class="tag">04 / About</span>
   <h1>Hey, I'm Rudransh 👋</h1>
 </div>
 
+<!-- Bio + socials. .about-grid is a 2-column CSS Grid: avatar on the
+     left, text on the right (it stacks to 1 column on small screens,
+     see the media query in style.css). -->
 <section class="section about-section">
   <div class="about-grid">
     <div class="about-avatar">R</div>
@@ -60,6 +66,11 @@
     </div>
   </div>
 
+  <!-- Social links. Each card is one <a> so the whole card is clickable,
+       not just the icon or text inside it. target="_blank" opens in a
+       new tab; rel="noopener noreferrer" is a security best practice
+       whenever target="_blank" is used (stops the new tab from being
+       able to access window.opener on this page). -->
   <div class="socials">
     <h2>Find me online</h2>
     <div class="social-grid">
@@ -75,9 +86,11 @@
         <div class="social-icon">📸</div>
         <div><strong>Instagram</strong><span>@rudransh_notfound</span></div>
       </a>
-      <a class="social-card" href="mailto:rudranshgrover@gmail.com">
+      <!-- mailto: is a special link scheme — clicking it opens the
+           visitor's default email app with this address pre-filled. -->
+      <a class="social-card" href="mailto:rudranshgroverWork@gmail.com">
         <div class="social-icon">✉️</div>
-        <div><strong>Email</strong><span>rudranshgrover@gmail.com</span></div>
+        <div><strong>Email</strong><span>rudranshgroverWork@gmail.com</span></div>
       </a>
     </div>
   </div>

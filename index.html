@@ -1,13 +1,23 @@
+<!-- ============================================================
+     HOME PAGE
+     This is the entry point of the site (the file browsers load
+     by default). Every page shares the same <nav> and links out
+     to style.css and script.js, so changes there affect all pages.
+     ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rudransh — Code &amp; Teach</title>
-<link rel="stylesheet" href="style.css">
+  <!-- Metadata: info ABOUT the page, not shown on screen -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- makes the page responsive on mobile -->
+  <title>Rudransh — Code &amp; Teach</title> <!-- shown in the browser tab -->
+  <link rel="stylesheet" href="style.css"> <!-- shared styling for every page -->
+  <link rel="icon" href="icon.png" type="image/x-icon"> <!-- the small tab icon -->
 </head>
-<body data-page="home">
+<body data-page="home"> <!-- data-page is a custom attribute; script.js could use it to know which page it's on -->
 
+<!-- Shared navigation bar. It's fixed to the top (see .navbar in style.css)
+     and repeated, unchanged, at the top of every page for consistency. -->
 <nav class="navbar">
   <a href="index.html" class="logo">&lt;Rudransh/&gt;</a>
   <ul class="nav-links">
@@ -20,8 +30,10 @@
   <button id="music-toggle" class="music-btn" title="Toggle background music" aria-label="Toggle background music">🔇</button>
 </nav>
 
+<!-- HERO: the big introduction section. <header> is the semantic tag for
+     introductory content, distinct from <nav> above it. -->
 <header class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg"></div> <!-- purely decorative gradient background, animated in CSS -->
   <div class="hero-content">
     <p class="eyebrow">Hi, I'm Rudransh</p>
     <h1>I build the web —<br><span id="typed" class="typed"></span><span class="cursor">|</span></h1>
@@ -34,13 +46,16 @@
   <div class="scroll-hint">↓ scroll</div>
 </header>
 
+<!-- "Explore" section: three cards that double as navigation to the
+     other pages. Notice each card is an <a> (link), not a <div> —
+     that's what makes the whole card clickable, not just the text. -->
 <section class="section">
   <div class="section-head">
     <span class="tag">Explore</span>
     <h2>Where to go from here</h2>
     <p>Every page is a real HTML file you can open, edit, and learn from.</p>
   </div>
-  <div class="project-grid">
+  <div class="project-grid"> <!-- CSS Grid handles the responsive 3-column layout, see .project-grid in style.css -->
     <a href="learn.html" class="project-card link-card">
       <div class="project-thumb thumb-1"></div>
       <h3>Learn →</h3>
@@ -64,6 +79,8 @@
   <div class="footer-links"><a href="about.html">More about me →</a></div>
 </footer>
 
+<!-- Loaded last, right before </body>, so the HTML above is already
+     parsed and available before the JS tries to select it. -->
 <script src="script.js"></script>
 </body>
 </html>

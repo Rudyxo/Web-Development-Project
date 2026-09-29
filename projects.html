@@ -26,6 +26,11 @@
   <p>A few things I've built, this site included.</p>
 </div>
 
+<!-- Each project is an <article> — the semantic tag for a self-contained
+     piece of content that would still make sense on its own (as opposed
+     to <div>, which carries no meaning). Duplicate one whole <article>
+     block to add a new project card; the CSS Grid in .project-grid
+     reflows automatically, no layout code needed. -->
 <section class="section">
   <div class="project-grid">
     <article class="project-card">
@@ -34,6 +39,10 @@
       <p>A teaching-first, multi-page portfolio site — plain HTML, CSS and a touch of JS. No frameworks, no build step.</p>
       <div class="project-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
     </article>
+
+    <!-- TODO: replace these two placeholders with real projects —
+         swap the thumbnail class (thumb-2/thumb-3 are just CSS
+         gradients in style.css), title, description and tags. -->
     <article class="project-card">
       <div class="project-thumb thumb-2"></div>
       <h3>Project Two</h3>

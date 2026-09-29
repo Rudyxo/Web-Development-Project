@@ -66,11 +66,8 @@ git clone https://github.com/Rudyxo/Web-Development-Project.git
 cd Web-Development-Project
 python -m http.server 8000
 ```
-```
 
 Then open <http://localhost:8000>.
-
-```
 
 > **Why not just double-click `index.html`?** The site mostly works that way, but YouTube often refuses to play embedded videos on pages opened from `file://`. Running it through a local server fixes that. The video thumbnails also need an internet connection.
 
@@ -105,6 +102,7 @@ Deployed on [Vercel](https://vercel.com) straight from this repo. It's a static 
 - GitHub: [@Rudyxo](https://github.com/Rudyxo)
 - LinkedIn: [rudransh-grover](https://www.linkedin.com/in/rudransh-grover-a08a15386/)
 - Instagram: [@rudransh_notfound](https://www.instagram.com/rudransh_notfound/)
+- Email: rudranshgroverWork@gmail.com
 
 ## Acknowledgements
 

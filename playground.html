@@ -26,6 +26,11 @@
   <p>Edit the HTML and CSS below — the preview updates as you type. No setup, no build tools.</p>
 </div>
 
+<!-- Live code playground. The two <textarea> elements hold whatever the
+     visitor types; script.js listens for the 'input' event on each one
+     and rebuilds the <iframe> below using its srcdoc attribute, which
+     lets you feed raw HTML into an iframe without a separate file.
+     See updatePreview() in script.js for the actual logic. -->
 <section class="section section-dark">
   <div class="playground">
     <div class="editor-col">
@@ -52,6 +57,8 @@ button {
     </div>
     <div class="preview-col">
       <label>Live preview</label>
+      <!-- Starts empty; script.js fills preview.srcdoc as soon as the
+           page loads and again on every keystroke in the textareas. -->
       <iframe id="preview" title="live preview"></iframe>
       <p class="mdn-row">📖 MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener noreferrer">HTML elements ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank" rel="noopener noreferrer">CSS reference ↗</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" target="_blank" rel="noopener noreferrer">iframe (how this preview works) ↗</a></p>
     </div>
